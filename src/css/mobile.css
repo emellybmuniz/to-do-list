@@ -1,7 +1,9 @@
 .container {
-    padding: 0px 3px 0px 3px;
+    padding: 0px 5px 0px 5px;
 }
 
 .input-new-task {
-    max-width: 190px;
+    max-width: 188px;
+    font-size: 16px;
 }
+

@@ -84,25 +84,7 @@ li button:hover {
     color: white;
 }
 
-@media screen and (max-width:500px) {
-    header {
-        height: 15%;
-    }
 
-    h1 {
-        font-size: 1.6em;
-    }
-
-    .input-new-task, .btn-add-task {
-        padding: 5px;
-        font-size: 0.9em;
-    }
-
-    li {
-        margin-left: 10px;
-    }
-
-}
 
 
 
