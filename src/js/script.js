@@ -1,85 +1,74 @@
 const inputNewTask = document.querySelector('.input-new-task');
 const btnAddTask = document.querySelector('.btn-add-task');
-const tasks = document.querySelector('.tasks');
+const tasksList = document.querySelector('.tasks');
 
-const createTask = (textInput) => {
-    if (textInput === '') return; 
-    displayTask(textInput);
-    cleanInput();
-    saveTask()
-}
-
-btnAddTask.addEventListener('click', function() {
-    if (!inputNewTask) return;
-    createTask(inputNewTask.value);
-});
-
-const displayTask = (showingTask) => {
-    const li = createLi();
-    li.innerText = showingTask;
-    tasks.appendChild(li);
-    cleanBtn(li)
-}
-
-const createLi = () => {
+function createTaskElement(taskText) {
     const li = document.createElement('li');
-    return li;
-}
+    li.classList.add('task-item');
 
-// captura cliques da tecla 'Enter'
-inputNewTask.addEventListener('keypress', function(e) {
-    if (e.keyCode === 13) {
-        if (!inputNewTask) return;
-        createTask(inputNewTask.value);
-        cleanInput()
-    }
-})
 
-const cleanInput = () => {
-    inputNewTask.value = ''; 
-    inputNewTask.focus();
-}
+    const textSpan = document.createElement('span');
+    textSpan.classList.add('task-text');
+    textSpan.innerText = taskText;
 
-cleanBtn = (li) => { // botão de apagar
-    li.innerText += ' ';
-    const deleteButton = document.createElement('button')
-    deleteButton.innerText = 'Apagar';
-    deleteButton.setAttribute('class', 'dell');
-    deleteButton.setAttribute('title', 'deletar tarefa')
+    const deleteButton = document.createElement('button');
+    deleteButton.classList.add('btn-delete');
+    deleteButton.innerText = 'Excluir';
+    deleteButton.setAttribute('title', 'Excluir tarefa');
+
+    li.appendChild(textSpan);
     li.appendChild(deleteButton);
+    tasksList.appendChild(li);
 }
+
+function handleAddTask() {
+    const taskText = inputNewTask.value.trim();
+    if (taskText === '') return;
+    
+    createTaskElement(taskText);
+    inputNewTask.value = '';
+    inputNewTask.focus();
+    saveTasks();
+}
+
+btnAddTask.addEventListener('click', handleAddTask);
+
+inputNewTask.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+        handleAddTask();
+    }
+});
 
 document.addEventListener('click', function(e) {
-    const el = e.target
-    if (el.classList.contains('dell'))  {
-        el.parentElement.remove();
-        saveTask()
+    const el = e.target;
+    if (el.classList.contains('btn-delete')) {
+        el.closest('.task-item').remove();
+        saveTasks();
     }
 });
 
-const saveTask = () => {
-    const litasks = tasks.querySelectorAll('li')
-    const taskList = [];
-    for(let tasks of litasks) {
-        let taskText = tasks.innerText.slice(0,-7);
-        taskText = tasks.innerText.replace('Apagar', '').trim()
-        taskList.push(taskText)
+function saveTasks() {
+    const taskItems = tasksList.querySelectorAll('.task-item');
+    const tasksArray = [];
+
+    for (let item of taskItems) {
+
+        const taskText = item.querySelector('.task-text').innerText;
+        tasksArray.push(taskText);
     }
 
-    // Convertendo array em string com JSON
-    const tasksInJSON = JSON.stringify(taskList);
-    localStorage.setItem('tasks', tasksInJSON) // local do navegador para salvar dados
+    const tasksJSON = JSON.stringify(tasksArray);
+    localStorage.setItem('tasks', tasksJSON);
 }
 
-function addSavedTasks() {
-    const tasks = localStorage.getItem('tasks')
-    const taskList = JSON.parse(tasks); // volta a String para array
-    for (let tasks  of taskList) {
-        createTask(tasks)
+function loadTasks() {
+    const savedTasks = localStorage.getItem('tasks');
+    if (!savedTasks) return;
+
+    const tasksArray = JSON.parse(savedTasks);
+    for (const taskText of tasksArray) {
+        createTaskElement(taskText); 
     }
 }
 
-addSavedTasks()
-
-
-
+loadTasks();

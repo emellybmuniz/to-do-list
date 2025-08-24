@@ -1,99 +1,139 @@
-@charset "UTF-8";
-*{
-  margin: 0px;  
-  padding: 0px;
-  text-decoration: none;
-  outline: none;
-  list-style: none;
-  cursor: default;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 body {
-    background-color: #0c4a6e;
-    font-family: Arial, Helvetica, sans-serif;
-    height: 100vh;
-    color: white;
+    background-color: #f0f2f5; 
+    color: #333;
 }
+
 header {
-    display: flex;
-    align-items: center;
-    height: 20%;
+    background-color: #4a90e2;
     color: white;
-    font-size: 1.2em;
-    text-indent: 20px;
-    text-shadow: 1px 2px 3px #0000008d;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.493) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+}
+
+header h1 {
+    font-size: 2rem;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
 }
 
 .container {
-    display: grid;
-    grid-template-columns: 0.83fr auto;
-    grid-template-rows: 80px 20px;
-    grid-template-areas:
-    "input button"
-    "list list";    
-    justify-content: center;
-    gap: 10px;
-    height: 100vh;
-    width: 100%;
-    border-radius: 40px 0 0;
-    background-color: #2b2a33dd;
-    box-shadow: -0px -4px 0px #0404048b;
+    max-width: 1200px;
+    width: 640px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    position: relative; 
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
-.input-new-task, .btn-add-task, li{
-    cursor: text;
-    margin-top: 30px; 
-    font-size: 1em;
-    padding: 9px;
-    color: #09090b;
-    background-color: #e2e8f0;
-    box-shadow: 2px 1px 3px #0404048b;
+
+.add-task-area {
+    display: flex; 
+    gap: 10px; 
+    margin-bottom: 25px; 
+}
+
+.input-new-task {
+    flex-grow: 1;
+    padding: 12px;
+    border: 1px solid #ccc;
     border-radius: 5px;
-    font-weight: 700;
+    font-size: 1rem;
+}
+
+.input-new-task:focus {
+    outline: none;
+    border-color: #4a90e2;
+    box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+}
+
+.btn-add-task {
+    padding: 12px 20px;
+    background-color: #4a90e2;
+    color: white;
     border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.2s ease-in-out;
 }
 
 .btn-add-task:hover {
-    cursor: pointer;
-    background-color: #151515;
-    color: #ffffff;
+    background-color: #357abd;
 }
 
-li {
-    background-color: #151515;
-    color: #ffffff;
+.tasks {
+    list-style: none;
+}
+
+.task-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 10px;
-    width: 100%;
+    padding: 12px 15px;
+    background-color: #fdfdfd;
+    border-bottom: 1px solid #c6c6c67b;
+    transition: background-color 0.2s ease;
+    position: relative; 
+    word-break: break-word;
 }
 
-li button {
-    border: solid 1px #09090b;
-    background-color: #a6a8ac;
-    border-radius: 3.5px;
-    padding: 5px;
-    color: #09090b;
-    font-weight: bold;
-    border: none;
+
+.task-item:hover {
+    background-color: #ececec;
+    border-radius: 5px;
 }
 
-li button:hover {
-    cursor: pointer;
-    background-color: #0c4a6e;
+.task-item:last-child {
+    border-bottom: none;
+}
+
+.task-text {
+    flex-grow: 1; 
+    margin-right: 15px; 
+}
+
+.btn-delete {
+    padding: 6px 12px;
+    background-color: transparent;
+    background-color: #ff4d4d;
     color: white;
+    border: 1px solid #ffc5c5;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.2s ease-in-out;
 }
 
+.btn-delete:hover {
+    background-color: #e03f3f;
+}
 
+.side-image {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    max-width: 180px;
+    height: auto;
+    transform: translate(76%, 25%); 
 
+}
 
-
-
-
-
-
-
-
-
-
-
+@media (max-width: 900px) {
+    .side-image {
+        display: none;
+    }
+}
