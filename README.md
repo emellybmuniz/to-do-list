@@ -29,7 +29,7 @@ This is a simple To-Do List project designed to help you organize your daily act
 
 A simple and intuitive web application to manage your daily tasks. Easily add or remove tasks, and most importantly: your data remains saved in the browser for the next time you log in!
 
-[![Project Demonstration](src/images/Project-demo.gif)](https://github.com/emellybmuniz/to-do-list)]
+[![Project Demonstration](src/images/Project-demo.gif)](https://github.com/emellybmuniz/to-do-list)
 
 ## ✨ Highlights & Features
 
