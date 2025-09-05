@@ -1,5 +1,7 @@
 # Lista de Tarefas
 
+[🇺🇸 English](./README.md) | [🇧🇷 Português](./README.pt.md)
+
 ![GitHub License](https://img.shields.io/github/license/emellybmuniz/to-do-list)
 ![GitHub language count](https://img.shields.io/github/languages/count/emellybmuniz/to-do-list)
 ![GitHub last commit](https://img.shields.io/github/last-commit/emellybmuniz/to-do-list)
@@ -27,7 +29,7 @@ Este é um projeto simples de Lista de Tarefas (To-Do List) criado para ajudar n
 
 Uma aplicação web simples e intuitiva para gerenciar suas tarefas diárias. Adicione ou remova tarefas com facilidade, e o mais importante: seus dados permanecem salvos no navegador para a próxima vez que você acessar!
 
-[![Demonstração do Projeto](src/images/Project-demo.gif)](https://github.com/emellybmuniz/to-do-list)
+[![Demonstração do Projeto](src/images/project-demo.gif)](https://github.com/emellybmuniz/to-do-list)
 
 ## ✨ Destaques & Funcionalidades
 

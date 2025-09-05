@@ -1,4 +1,6 @@
-# Lista de Tarefas
+# To-Do List
+
+[🇺🇸 English](./README.md) | [🇧🇷 Português](./README.pt.md)
 
 ![GitHub License](https://img.shields.io/github/license/emellybmuniz/to-do-list)
 ![GitHub language count](https://img.shields.io/github/languages/count/emellybmuniz/to-do-list)
